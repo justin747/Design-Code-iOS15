@@ -15,9 +15,10 @@ struct ContentView: View {
                 .resizable(resizingMode: .stretch)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 26.0, height: 26.0)
-                .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
+                .cornerRadius(10.0)
                 .padding(9)
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .strokeStyle(cornerRadius: 16)
             Text("Swift for iOS 15")
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -40,11 +41,7 @@ struct ContentView: View {
         //        .cornerRadius(/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
         //        .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .stroke(.linearGradient(colors: [.white.opacity(0.3), .black], startPoint: .top, endPoint: .bottom))
-                .blendMode(.overlay)
-        )
+        .strokeStyle(cornerRadius: 30)
         .padding(.horizontal, 20.0)
         .background(
             Image("Blob 1")
@@ -62,5 +59,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
