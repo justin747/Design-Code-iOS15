@@ -23,14 +23,14 @@ struct AccountView: View {
                                         .symbolVariant(.fill)
                                         .foregroundColor(.blue)
                                         .font(.system(size: 200))
-                                    .offset(x: -50, y: -100))
+                                        .offset(x: -50, y: -100))
                     
                     Text("CM Punk")
                         .font(.title.weight(.semibold))
                     HStack {
                         Image(systemName: "location")
                             .imageScale(.small)
-
+                        
                         Text("Los Angeles")
                             .foregroundColor(.secondary)
                     }
@@ -39,14 +39,32 @@ struct AccountView: View {
                 .padding()
                 
                 Section {
-                    Label("Settings", systemImage: "gear")
-                    Label("Billing", systemImage: "creditcard")
-                    Label("Help", systemImage: "questionmark")
+                    NavigationLink {
+                        ContentView()
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                    NavigationLink {
+                        Text("Billing")
+                    } label: {
+                        Label("Billing", systemImage: "creditcard")
+                    }
+                    NavigationLink {
+                        Text("Help")
+                    } label: {
+                        Label("Help", systemImage: "questionmark")
+                    }
                 }
+                .accentColor(.primary)
                 .listRowSeparatorTint(.blue)
                 .listRowSeparator(.hidden)
                 
-                
+                Section {
+                    Link(destination: URL(string: "https://twitter.com/CMPunk")!) {
+                        Label("Website", systemImage: "link")
+                    }
+                }
+                .accentColor(.primary)
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Account")
