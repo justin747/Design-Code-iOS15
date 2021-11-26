@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct AccountView: View {
+    
+    @State var isDeleted: Bool = false
+    
+    
     var body: some View {
         NavigationView {
             List {
@@ -61,7 +65,33 @@ struct AccountView: View {
                 
                 Section {
                     Link(destination: URL(string: "https://twitter.com/CMPunk")!) {
-                        Label("Website", systemImage: "link")
+                        HStack {
+                            Label("Website", systemImage: "house")
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    if !isDeleted {
+                        Link(destination: URL(string: "https://www.youtube.com/c/AEW/featured")!) {
+                            HStack {
+                                Label("YouTube", systemImage: "tv")
+                                Spacer()
+                                Image(systemName: "link")
+                                    .foregroundColor(.secondary)
+                                    .listSectionSeparator(.hidden)
+                            }
+                        }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button(action: {isDeleted = true}) {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            .tint(.red)
+                            Button {} label: {
+                                Label("Pin", systemImage: "pin")
+                            }
+                            .tint(.yellow)
+                        }
                     }
                 }
                 .accentColor(.primary)
