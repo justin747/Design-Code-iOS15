@@ -15,6 +15,8 @@
 		3B5FB3562749C99D00B4D484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5FB3552749C99D00B4D484 /* Assets.xcassets */; };
 		3B5FB3592749C99D00B4D484 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5FB3582749C99D00B4D484 /* Preview Assets.xcassets */; };
 		3BE7F7232751C2AD00BF7BBF /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7F7222751C2AD00BF7BBF /* BlobView.swift */; };
+		3BE7F7252751EE1100BF7BBF /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7F7242751EE1100BF7BBF /* TabBar.swift */; };
+		3BE7F7292751FC6000BF7BBF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7F7282751FC6000BF7BBF /* Tab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		3B5FB3552749C99D00B4D484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B5FB3582749C99D00B4D484 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3BE7F7222751C2AD00BF7BBF /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
+		3BE7F7242751EE1100BF7BBF /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		3BE7F7282751FC6000BF7BBF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				3B5FB3532749C99C00B4D484 /* ContentView.swift */,
 				3B4557A4274DD0FF001FDBB9 /* Styles.swift */,
 				3B4557A6274DE8A7001FDBB9 /* AccountView.swift */,
+				3BE7F7242751EE1100BF7BBF /* TabBar.swift */,
+				3BE7F7282751FC6000BF7BBF /* Tab.swift */,
 				3BE7F7222751C2AD00BF7BBF /* BlobView.swift */,
 				3B54F4512751A630008DD297 /* HexagonView.swift */,
 				3B5FB3552749C99D00B4D484 /* Assets.xcassets */,
@@ -152,9 +158,11 @@
 				3B4557A7274DE8A7001FDBB9 /* AccountView.swift in Sources */,
 				3B54F4522751A630008DD297 /* HexagonView.swift in Sources */,
 				3B4557A5274DD0FF001FDBB9 /* Styles.swift in Sources */,
+				3BE7F7292751FC6000BF7BBF /* Tab.swift in Sources */,
 				3BE7F7232751C2AD00BF7BBF /* BlobView.swift in Sources */,
 				3B5FB3542749C99C00B4D484 /* ContentView.swift in Sources */,
 				3B5FB3522749C99C00B4D484 /* Design_Code_iOS15App.swift in Sources */,
+				3BE7F7252751EE1100BF7BBF /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
