@@ -9,45 +9,27 @@ import SwiftUI
 
 struct TabBar: View {
     
-    @State var selectedTab: Tab = .home
+    @AppStorage("selectedTab") var selectedTab: Tab = .home
     @State var color: Color = .blue
     @State var tabItemWidth: CGFloat = 0
     
     //MARK: Body
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            
-            Group {
-                switch selectedTab {
-                case .home:
-                    ContentView()
-                case .explore:
-                    AccountView()
-                case .notifications:
-                    AccountView()
-                case .library:
-                    AccountView()
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            
-            
-            HStack {
-                buttons
-            }
-            .padding(.horizontal, 8)
-            .padding(.top, 14)
-            .frame(height: 88, alignment: .top)
-            .background(.ultraThinMaterial, in:
-                            RoundedRectangle(cornerRadius: 34, style: .continuous))
-            .background(background)
-            .overlay(overlay)
-            .strokeStyle(cornerRadius: 34)
-            .frame(maxHeight: .infinity, alignment: .bottom)
-            .ignoresSafeArea()
+        HStack {
+            buttons
         }
+        .padding(.horizontal, 8)
+        .padding(.top, 14)
+        .frame(height: 88, alignment: .top)
+        .background(.ultraThinMaterial, in:
+                        RoundedRectangle(cornerRadius: 34, style: .continuous))
+        .background(background)
+        .overlay(overlay)
+        .strokeStyle(cornerRadius: 34)
+        .frame(maxHeight: .infinity, alignment: .bottom)
+        .ignoresSafeArea()
+        
     }
     
     //MARK: Buttons
@@ -77,8 +59,8 @@ struct TabBar: View {
             .overlay(
                 
                 GeometryReader { proxy in
-//                            Text("\(proxy.size.width)")
-//                            tabItemWidth = proxy.size.width
+                    //                            Text("\(proxy.size.width)")
+                    //                            tabItemWidth = proxy.size.width
                     Color.clear.preference(key: TabPreferenceKey.self, value: proxy.size.width)
                 }
             )
@@ -106,7 +88,7 @@ struct TabBar: View {
             }
             if selectedTab == .notifications { Spacer() }
         }
-            .padding(.horizontal, 8)
+        .padding(.horizontal, 8)
     }
     
     //MARK: Overlay
@@ -132,8 +114,8 @@ struct TabBar: View {
             }
             if selectedTab == .notifications { Spacer() }
         }
-            .padding(.horizontal, 8)
-
+        .padding(.horizontal, 8)
+        
     }
 }
 
