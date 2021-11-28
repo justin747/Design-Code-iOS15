@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBar: View {
     
     @State var selectedTab: Tab = .home
+    @State var color: Color = .blue
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -34,13 +35,16 @@ struct TabBar: View {
                 Spacer()
                 ForEach(tabItems) { item in
                     Button {
-                        selectedTab = item.tab
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                            selectedTab = item.tab
+                            color = item.color
+                        }
                     } label: {
                         VStack(spacing: 0) {
                             Image(systemName: item.icon)
                                 .symbolVariant(.fill)
-                                .font(.body.bold())
-                                .frame(width: 44, height: 28)
+                                .font(.system(size: 17).bold())
+                                .frame(width: 44, height: 29)
                             Text(item.text)
                                 .font(.caption2)
                                 .lineLimit(1)
@@ -48,6 +52,7 @@ struct TabBar: View {
                         .frame(maxWidth: .infinity)
                     }
                     .foregroundStyle(selectedTab == item.tab ? .primary : .secondary)
+                    .blendMode(selectedTab == item.tab ? .overlay : .normal)
                 }
             }
             .padding(.horizontal, 8)
@@ -55,6 +60,47 @@ struct TabBar: View {
             .frame(height: 88, alignment: .top)
             .background(.ultraThinMaterial, in:
                             RoundedRectangle(cornerRadius: 34, style: .continuous))
+            .background(
+                HStack {
+                    if selectedTab == .library { Spacer() }
+                    if selectedTab == .explore { Spacer() }
+                    if selectedTab == .notifications {
+                        Spacer()
+                        Spacer()
+                    }
+                    Circle().fill(color).frame(width: 88)
+                    if selectedTab == .home { Spacer() }
+                    if selectedTab == .explore {
+                        Spacer()
+                        Spacer()
+                    }
+                    if selectedTab == .notifications { Spacer() }
+                }
+                    .padding(.horizontal, 8)
+            )
+            .overlay(
+                HStack {
+                    if selectedTab == .library { Spacer() }
+                    if selectedTab == .explore { Spacer() }
+                    if selectedTab == .notifications {
+                        Spacer()
+                        Spacer()
+                    }
+                    Rectangle()
+                        .fill(color)
+                        .frame(width: 28, height: 5)
+                        .cornerRadius(3)
+                        .frame(width: 88)
+                        .frame(maxHeight: .infinity, alignment: .top)
+                    if selectedTab == .home { Spacer() }
+                    if selectedTab == .explore {
+                        Spacer()
+                        Spacer()
+                    }
+                    if selectedTab == .notifications { Spacer() }
+                }
+                    .padding(.horizontal, 8)
+            )
             .strokeStyle(cornerRadius: 34)
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
