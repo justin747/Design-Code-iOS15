@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavigationBar: View {
-    var title = ""
+    var title: String = "Featured"
     @Binding var hasScroll: Bool
     
     var body: some View {
@@ -19,7 +19,7 @@ struct NavigationBar: View {
                 .opacity(hasScroll ? 1 : 0)
             
             Text(title)
-                .font(.largeTitle.weight(.bold))
+                .animatableFont(size: hasScroll ? 22 : 34, weight: .bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .padding(.top, 20)
