@@ -22,9 +22,10 @@ struct FeaturedItem: View {
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .strokeStyle(cornerRadius: 16)
             Text(course.title)
-                .font(.largeTitle)
+                .font(.title)
                 .fontWeight(.bold)
                 .foregroundStyle(.linearGradient(colors: [.primary, .primary.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .lineLimit(1)
             Text(course.subtitle)
                 .font(.footnote)
                 .fontWeight(.semibold)
@@ -39,19 +40,12 @@ struct FeaturedItem: View {
         .padding(/*@START_MENU_TOKEN@*/.all, 20.0/*@END_MENU_TOKEN@*/)
         .padding(.vertical, 20.0)
         .frame(height: 350.0)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
+        .background(.ultraThinMaterial)
+        .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
         //        .cornerRadius(/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
         //        .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-        .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
         .strokeStyle(cornerRadius: 30)
         .padding(.horizontal, 20.0)
-        .overlay(
-            Image(course.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 230)
-                .offset(x: 32, y: -80)
-        )
     }
 }
 
