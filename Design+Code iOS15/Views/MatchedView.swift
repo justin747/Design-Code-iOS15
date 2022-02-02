@@ -8,8 +8,66 @@
 import SwiftUI
 
 struct MatchedView: View {
+    @Namespace var namespace
+    @State var show = false
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if !show {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("SwiftUI")
+                        .font(.largeTitle.weight(.bold))
+                        .matchedGeometryEffect(id: "title", in: namespace)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text("20 Sections - 3 Hours")
+                        .font(.footnote.weight(.semibold))
+                        .matchedGeometryEffect(id: "subtitle", in: namespace)
+                    
+                    Text("Build an iOS app for iOS 15 with custom layouts, animations, and...")
+                        .font(.footnote)
+                        .matchedGeometryEffect(id: "caption", in: namespace)
+                }
+                .padding(20)
+                .foregroundStyle(.white)
+                .background(
+                    Image("Background 5")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .matchedGeometryEffect(id: "background", in: namespace)
+                )
+                .padding(20)
+                
+            } else {
+                VStack(alignment: .leading, spacing: 12) {
+                    Spacer()
+                    Text("Build an iOS app for iOS 15 with custom layouts, animations, and...")
+                        .font(.footnote)
+                        .matchedGeometryEffect(id: "caption", in: namespace)
+                    Text("20 Sections - 3 Hours")
+                        .font(.footnote.weight(.semibold))
+                        .matchedGeometryEffect(id: "subtitle", in: namespace)
+                    Text("SwiftUI")
+                        .font(.largeTitle.weight(.bold))
+                        .matchedGeometryEffect(id: "title", in: namespace)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(20)
+                .foregroundStyle(.black)
+                .background(
+                    Image("Background 5")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .matchedGeometryEffect(id: "background", in: namespace)
+                )
+            }
+        }
+        .onTapGesture {
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                show.toggle()
+            }
+        }
     }
 }
 
