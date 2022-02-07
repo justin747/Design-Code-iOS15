@@ -31,17 +31,19 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     .padding(.horizontal, 20)
                 
-                if !show {
-                    cards
-                } else {
-                    ForEach(courses) { course in
-                        Rectangle()
-                            .fill(.white)
-                            .frame(height: 300)
-                            .cornerRadius(30)
-                            .shadow(color: Color("Shadow"), radius: 20, x: 0, y: 10)
-                            .opacity(0.3)
-                            .padding(.horizontal, 30)
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 300))]) {
+                    if !show {
+                        cards
+                    } else {
+                        ForEach(courses) { course in
+                            Rectangle()
+                                .fill(.white)
+                                .frame(height: 300)
+                                .cornerRadius(30)
+                                .shadow(color: Color("Shadow"), radius: 20, x: 0, y: 10)
+                                .opacity(0.3)
+                                .padding(.horizontal, 30)
+                        }
                     }
                 }
             }
