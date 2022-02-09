@@ -59,7 +59,6 @@ struct CourseItem: View {
                 .matchedGeometryEffect(id: "mask\(course.id)", in: namespace)
         )
         .frame(height: 300)
-        .padding(20)
     }
 }
 

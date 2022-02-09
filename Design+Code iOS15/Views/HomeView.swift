@@ -31,7 +31,7 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     .padding(.horizontal, 20)
                 
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 300))]) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), spacing: 20)], spacing: 20) {
                     if !show {
                         cards
                     } else {
@@ -46,6 +46,7 @@ struct HomeView: View {
                         }
                     }
                 }
+                .padding(.horizontal, 20)
             }
             .coordinateSpace(name: "scroll")
             .safeAreaInset(edge: .top, content: {
