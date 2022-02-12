@@ -97,6 +97,8 @@ struct HomeView: View {
                     let minX = proxy.frame(in: .global).minX
                     
                     FeaturedItem(course: course)
+                        .frame(maxWidth: 500)
+                        .frame(maxWidth: .infinity)
                         .padding(.vertical, 40)
                         .rotation3DEffect(.degrees(minX / -10), axis: (x: 0, y: 1, z: 0))
                         .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)

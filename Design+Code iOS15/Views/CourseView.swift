@@ -210,7 +210,6 @@ struct CourseView: View {
     }
     
     func close() {
-        
         withAnimation(.closeCard.delay(0.3)) {
             show.toggle()
             model.showDetail.toggle()
