@@ -23,7 +23,7 @@ struct TabBar: View {
             }
             .padding(.horizontal, 8)
             .padding(.top, 14)
-            .frame(height: 88, alignment: .top)
+            .frame(height: hasHomeIndicator ? 88 : 62, alignment: .top)
             .background(.ultraThinMaterial, in:
                             RoundedRectangle(cornerRadius: 34, style: .continuous))
             .background(background)
