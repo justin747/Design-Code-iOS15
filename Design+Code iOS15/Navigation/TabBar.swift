@@ -25,7 +25,7 @@ struct TabBar: View {
             .padding(.top, 14)
             .frame(height: hasHomeIndicator ? 88 : 62, alignment: .top)
             .background(.ultraThinMaterial, in:
-                            RoundedRectangle(cornerRadius: 34, style: .continuous))
+                            RoundedRectangle(cornerRadius: hasHomeIndicator ? 34 : 0, style: .continuous))
             .background(background)
             .overlay(overlay)
             .strokeStyle(cornerRadius: 34)
