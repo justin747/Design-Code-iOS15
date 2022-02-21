@@ -28,7 +28,7 @@ struct TabBar: View {
                             RoundedRectangle(cornerRadius: hasHomeIndicator ? 34 : 0, style: .continuous))
             .background(background)
             .overlay(overlay)
-            .strokeStyle(cornerRadius: hasHomeIndicator ? 34 : 1)
+            .strokeStyle(cornerRadius: hasHomeIndicator ? 34 : 0)
             .frame(maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
         }
